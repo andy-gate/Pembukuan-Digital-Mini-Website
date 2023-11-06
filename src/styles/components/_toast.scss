@@ -1,0 +1,112 @@
+@use postcss-each;
+@use postcss-cssnext;
+
+.toast {
+  align-items: center;
+  border-radius: 25px;
+  bottom: 0px;
+  display: flex;
+  min-height: 50px;
+  max-height: 50px;
+  justify-content: space-between;
+  left: 50%;
+  padding: 0 20px;
+  position: fixed;
+  transform: translateX(-50%) translateY(150%);
+  transition: transform .35s ease;
+
+  &.visible {
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &.success {
+    background-color: #16a085;
+
+    & p { color: #fff; }
+  }
+
+  &.danger {
+    background-color: #c0392b;
+
+    & p { color: #fff; }
+  }
+
+  &.warning {
+    background-color: #F38211;
+
+    & p { color: #fff; }
+  }
+
+  & figure {
+    height: 35px;
+    margin: 0 15px 0 0;
+    opacity: .9;
+    width: 35px;
+
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  & p {
+    color: #fff;
+    font-family: 'Noto Sans';
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+.image-cropper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  //margin-left: -25%; //centers the image
+  height: 100%;
+  width: auto;
+}
+
+.loading-dots {
+  text-align: center;
+  font-size: 2em;
+  color: rgba(255,2555,255,0);
+  animation-name: loading-dots-animation;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading-dots-animation {
+  0% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,.6), 0em 0 0 rgba(255,2555,255,.2), 1em 0 0 rgba(255,2555,255,.2);
+  }
+   20% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,1), 0em 0 0 rgba(255,2555,255,.6), 1em 0 0 rgba(255,2555,255,.2);
+  }
+  40% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,.6), 0em 0 0 rgba(255,2555,255,1), 1em 0 0 rgba(255,2555,255,0.6);
+  }
+  60% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,.2), 0em 0 0 rgba(255,2555,255,.6), 1em 0 0 rgba(255,2555,255,1);
+  }
+  80% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,.2), 0em 0 0 rgba(255,2555,255,.2), 1em 0 0 rgba(255,2555,255,.6);
+  }
+  100% {
+    text-shadow: -1em 0 0 rgba(255,2555,255,.6), 0em 0 0 rgba(255,2555,255,.2), 1em 0 0 rgba(255,2555,255,.2);
+  }
+}
+
+.loading-text {
+  font-weight: bold;
+  color: #fff;
+  margin: 0.3em 0;
+  font-size: 1.5em;
+}

@@ -1,0 +1,112 @@
+.sb-example-1 .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.sb-example-1 .searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.sb-example-1 .searchTerm:focus{
+  color: #00B4CC;
+}
+.sb-example-1 .searchButton {
+  width: 40px;
+  height: 50px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search-text-input{
+    border-top:thin solid  #e5e5e5;
+    border-right:thin solid #e5e5e5;
+    border-bottom:0;
+    border-left:thin solid  #e5e5e5;
+    box-shadow:0px 1px 1px 1px #e5e5e5;
+    float:left;
+    height:17px;
+    margin:.8em 0 0 .5em;
+    outline:0;
+    padding:.4em 0 .4em .6em;
+    width:183px;
+}
+
+.button-holder{
+    background-color:#f1f1f1;
+    border-top:thin solid #e5e5e5;
+    box-shadow:1px 1px 1px 1px #e5e5e5;
+    cursor:pointer;
+    float:left;
+    height:27px;
+    margin:11px 0 0 0;
+    text-align:center;
+    width:50px;
+}
+
+.button-holder img{
+    margin:4px;
+    width:20px;
+}
+
+.searchfield {
+    border: none;
+    height: 32px;
+    line-height: 22px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 4px 6px 5px 6px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 0;
+    width: 160px;
+    font-size: 16px;
+    -webkit-border-top-right-radius: 15px;
+    -moz-border-radius-topright: 15px;
+    border-top-right-radius: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    border-bottom-right-radius: 15px;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-bottom-left-radius: 0px;
+    -webkit-box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+    box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+    margin-left: -4px;
+    outline: none;
+    color: #4b4c4e;
+  background-color: #cfedfe;
+}
+
+.searchbutton {
+    display: inline-block;
+    border: none;
+    line-height: 20px;
+    padding: 4px 5px 4px 15px;
+    height: 32px;
+    vertical-align: middle;
+    -webkit-border-top-left-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    border-top-left-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-left-radius: 15px;
+    -webkit-box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+    box-shadow: inset 3px 5px 0px -4px rgba(0, 0, 0, 0.06);
+background-color: #cfedfe;
+}
