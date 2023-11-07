@@ -6,6 +6,8 @@ import EmptyCart from "./empty-states/EmptyCart";
 import { findDOMNode } from "react-dom";
 import { formatNumber } from '../helpers/utils';
 import { withRouter } from 'react-router-dom';
+import { IconContext } from "react-icons";
+import { BsFillHandbagFill, BsSearch } from 'react-icons/bs';
 
 const cartPNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAAC3CAMAAADkUVG/AAAAkFBMVEX39/dlLZD5+vn9/vxaEYnb1d9gI42VfqtkKpBnNY1eHYyyoMSZga////9mL5FhJY5cGYtZDolWAIfn5Orx8PLOxde6rMi1pcTt6+6NcKhuP5Tg2+SijLbAtcp2S5rY0d55UpuUeK2FZKJ9WJ3KwNSnk7rCtc1wQ5WAXp6LbKhoNJGVe610SJl6U5tYFoSgibVxjb3dAAAG+UlEQVR4nO2di2KiOhCGY4I0RpG7olaxXmvd1vd/uwO2u6eKsPScyPwt+V8A/JiZzGSSkTEjIyMjIyMjIyMjo9aLc1EtTv2GzYo7mcL546BK8267sGRQwnXgKbtKnr9IBfWbNijupIHb+atkMG4RFWcW/B1JrmDTHg9yFjXs5Gwr+9aYCu/69Zh0OlZrTEX0VV0o9kNbTOULUDqWQ/22DekrUPxZS/yHx1ZtKF5rgkrk1YaiHlsTVEa1lx/53BYozDnUdSDZaQ0UJraBkrWoWCHHUBNUwu10eFuXsNSuC6GQifvbbOluipNeupayIOQHy1Ej5nKbVlh/wW5U0loyMipiXy/aNC97T8WEiSeb+teXSR2p1sKvVAFNy0qIHIh3QYNKJm9EZSoJrqWoPhUUBzbSEkIRA9xISwaFx/Wr6IZFCCWsXUQ3LTooTMAuP5RQDjVbII2LEsoWdVEmhMI3qP5DCSUxUG6oB5q+UUKBTd9IoYxAIy0lFD4DTd9IY0pkYkpRzi9MKqRQxCNmpKWFMsIslEmh8Blm+kYKhXEbMqjQQhFPkIUyMRTMPgex+3zhtFODooXCoprnj5sVMRQBWShTQ4HsKBND4ZCFMjUUyEhLDIUx4z5FiTVgpCWHgtjnoIbC54CFMjkUxI4yNRTGX6gRFEUORazxCmV6KICFMjkUnuKlb+RQGGBHmR6KM4VL3+ihAHaU6aHwDVz6BgAFr6NMD4VxuC1JAChihZa+IUCB6ygDQMGLtAhQ4G7OAUBhYgGWvkFAQetzIEDhY7BCGQIK2s05CChoN+cQoMAVyhBQxAkr0mJAAesoQ0BBOxAIAYU5BkpRYgJVKINAweooY0ABK5RBoCRQu29+CjF2jg+B0jcpIZhgFcrBBsF7MihAhbJ/BBnvCVIoS2l7dBNlCopIExXp2sqz/Ldfy6dxBMOEiVeKSOvamWVYvt2bHEfzbpLkE+ioSXySeGwwqOSGkU+6e1sfB6M4Td5n9NENvStTEzfnpHRV5iXecLE+9dM0dJx3FnAwfuuehbK0s4jh+/ZyPRmPN2HIHGwWn6Q9fXuPnpmTTDMn2cyS6MMuvgOMD4mlJihSSpVFDE8NnwaPuzjloAGjjv7vgUCZG0YOo7dcb8dxN0IPGHX0n+9zyHxZ9f3h+vk0HsVhPlH2u7P4pC8VyjKPnvn82Lf9wyljETHxAyyjIKdTJ6h8LKu2nB5P2zgNP/456Weh+FfiWFEoS/c9EVeL18M4W0rYT4gYNXS7z5FHDMu3eqvDdjSfhUk7WPxRIdKeI8bzw2kezxj72V5SoUsowzRNnNay+C1+mb6pqF1/sXZbVx1lC2P3mFhXN+dUm/5frVQ8uTh67a4NFHY9Sl++UL8PhK46ylZogkoBim+g5BfnLq9zGCiseMZYJdRvRC8xv8xo3ZVZfZhzNXTHmhvvuTYUOTWGwsTVWVpvZAxFXE8BV85f/qdcm3DhXxuKXAweGtFgNEP104Kh5FtuzcgLJnR/Elapa0NpVHYHMk3kMendZHeKCIX6yJu1Q4wrxCdGJaCp0J94syJqBgXRXyL0u3CmQj8sEdBS6MfSIm59Uo/wUlvA1YfPSE1F2oDek5lK7NOltK6CzGhzKkPLlrk+Pt599ekhtr8PAZ3nLC52g31vul+exyb2lvtp716aLj4e8rrv9ZanFHjzIMPiOGF/9f4RV/2Ps7+65ThOd7s/P2M4GbHsIcBIMonuKlDyt58Hz917WLWI97795yHeI9D9hFsSY/9iYXaDrfaLN1xMLiO6UikyFedY2D6wnjQ/gyfT64JCBsCnG8TxRqrvrbTaCo86N5JEXCpie7P8sbSmmuJwc9smiDGp8G7J1lsQ61scSsB3pIJMaJl4LSl+5FSfA0WqJGtWA0RTqdijtTa6TKVidoCVACYrFeNX7Ymur3h5UOpCHuIerSNL31e6mhy+apqpe8CDUjl91ZrpMe3KC0W6yGtU5ca1LtOunJD8hgelciaTGmuylIcKKIBHySp387VBqbo6YwHu5le6j6bZA9/NfSqh6PqIlSOOEDdpRcXqozQlVlXNJYl45L3C3zUeknwpTYYgL0eIXelX1DfOpCKoAC4+uUoP7bjaviEPy2ZM6CsltEpsSrphvsa5N+JYEmoDTENh4nDzhZXeouT2f777iBHlLLG/saPi9iKd35DPrBtULMjdlLN48lKIg6qneZ9DdL0CFWui9RF6xfnqsvsg/YNWO8klZlfb+fIOfRStEruO98eHpGeP7tC843zg/bsr6VoL6LZPLs53K2V55wkP6zG7z+uKcPvL984PkU8b8KbpWUJEm3m/P98kzt2+IBdiNp9vx/OYfQckZzUxLSgfSdSiMRJGRkZGRkZGRkZGRl/UP67wnrzR8grgAAAAAElFTkSuQmCC'
 
@@ -159,10 +161,9 @@ class Header extends Component {
               href="#"
               onClick={this.handleMobileSearch.bind(this)}
             >
-              <img style={{width: "23px", height: "23px"}}
-                src={searchPNG}
-                alt="search"
-              />
+              <IconContext.Provider value={{ color: "#FF0025", size: 23 }}>
+                <BsSearch />
+              </IconContext.Provider>
             </a>
 
             <form
@@ -193,7 +194,11 @@ class Header extends Component {
                 className="search-button"
                 type="submit"
                 onClick={this.handleSubmit.bind(this)}
-              />
+              >
+                <IconContext.Provider value={{ color: "#FFFFFF", size: 20 }}>
+                  <BsSearch />
+                </IconContext.Provider>
+              </button>
             </form>
           </div>
 
@@ -227,11 +232,9 @@ class Header extends Component {
               onClick={this.handleCart.bind(this)}
               ref="cartButton"
             >
-              <img style={{width: "30px", height: "30px"}}
-                className={this.props.cartBounce ? "tada" : " "}
-                src={cart1PNG}
-                alt="Cart"
-              />
+              <IconContext.Provider value={{ color: "#FF0025", size: 30, className: this.props.cartBounce ? "tada" : " " }}>
+                <BsFillHandbagFill />
+              </IconContext.Provider>
               {this.props.totalItems ? (
                 <span className="cart-count">{this.props.totalItems}</span>
               ) : (

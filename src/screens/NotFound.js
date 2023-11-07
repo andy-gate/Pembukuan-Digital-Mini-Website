@@ -31,7 +31,7 @@ export default class NotFound extends Component{
 
                   <div className="nameWrapper">
                     <h3 className="normal">Silahkan kunjungin link toko:</h3>
-                    <h3 className="normal">https://orderin.id/nama-toko</h3>
+                    <h3 className="normal">{window.location.protocol}//{window.location.host}/nama-toko</h3>
                   </div>
                 </div>
 

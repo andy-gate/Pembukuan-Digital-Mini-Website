@@ -39,7 +39,8 @@ h4 {
 }
 
 .card {
-  border: 1px solid #652D90;
+  cursor: pointer;
+  border: 1px solid #FF0025;
   padding-left: 10px;
   padding-right: 10px;
   min-width: 100px;
@@ -52,12 +53,13 @@ h4 {
 }
 
 .card-select {
-  border: 1px solid #652D90;
+  cursor: pointer;
+  border: 1px solid #FF0025;
   padding-left: 10px;
   padding-right: 10px;
   min-width: 100px;
   height: 30px;
-  background: #652D90;
+  background: #FF0025;
   border-radius: 15px;
     display:flex;
     align-items: center;
@@ -66,7 +68,7 @@ h4 {
 
 
 .content {
-  border: 2px solid #652D90;
+  border: 2px solid #FF0025;
   width: 600px;
   height: 500px;
   background: white;
@@ -78,7 +80,7 @@ h4 {
   font-size: 14px;
   //line-height: 20px;
   //margin-bottom: 8px;
-  color: #652D90;
+  color: #FF0025;
   text-align: center;
   padding-top: 5px;
 }
